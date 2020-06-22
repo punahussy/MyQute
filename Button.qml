@@ -3,17 +3,13 @@ import QtQuick 2.0
     Rectangle {
         id: buttonbg
 
-        width: parent.width
-        height: parent.height
-
-        color: "black"
-        opacity: 0.3
+        color: "#FA6800"
+        opacity: 0.8
 
         MouseArea {
             id: marea
             anchors.fill: parent
 
-            onClicked: buttonbg.opacity = 0.35;
-            onReleased: buttonbg.opacity = 0.1;
+            onClicked: buttonbg.opacity = 0.45;
         }
     }

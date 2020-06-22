@@ -16,21 +16,22 @@ Item {
 
             width: menu.width * 0.6
             height: menu.height * 0.6
-            color: "Light Yellow"
+            color: "#A20025"
+            opacity: 0.75
 
             Text {
                 id: idea
 
+                width: parent.width
+                height: parent.height
                 anchors.fill: parent.fit
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
 
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 font.underline: true
-                font.pixelSize: idea.text.length
+                font.pixelSize: Math.sqrt(Math.min(width, height))
 
-                text: "Idea idea idea ikea"
+                text: "Idea idea idea ikea ikea ikea ikea"
             }
 
         }
@@ -49,22 +50,56 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
 
                 fontSizeMode: Text.fit
-                font.pixelSize: Math.min(width, height) * 0.5
+                font.pixelSize: Math.min(width, height) * 0.2
 
 
                 text: "Generate"
             }
         }
 
-        Button {
-            id: saveButton
+        Grid {
+            columns: 2
+            spacing: 5
 
-            width: generateButton.width * 0.8
-            height: generateButton.height * 0.5
+            Button {
+                id: saveButton
 
-            Text {
-                text: "to fav"
+                width: generateButton.width * 0.6
+                height: generateButton.height * 0.6
+
+
+                Text {
+                    width: parent.width
+                    height: parent.height
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+
+                    font.pixelSize: Math.min(width, height) * 0.2
+
+                    text: "Сохранить"
+                }
             }
+
+
+            Button {
+                id: favouritesButton
+
+                width: generateButton.width * 0.6
+                height: generateButton.height * 0.6
+
+                Text {
+                    id: favButtonLabel
+                    width: parent.width
+                    height: parent.height
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+
+                    font.pixelSize: Math.min(width, height) * 0.2
+
+                    text: "Избранное"
+                }
+            }
+
         }
 
     }

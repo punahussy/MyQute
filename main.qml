@@ -6,9 +6,11 @@ Window {
     visible: true
     width: 640
     height: 480
+    minimumHeight: 300
+    minimumWidth: 400
     title: qsTr("Artblock remover")
 
-    color: "Maroon"
+    color: "Light Yellow"
 
     MainMenu {
         id: menu
