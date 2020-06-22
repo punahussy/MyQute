@@ -39,22 +39,12 @@ Item {
         Button {
             id: generateButton
 
-            width: ideaCard.width * 0.5
-            height: ideaCard.width * 0.25
+            width: ideaCard.width * 0.6
+            height: ideaCard.height * 0.2
 
-            Text {
-                width: parent.width
-                height: parent.height
+            label: "Generate"
 
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-
-                fontSizeMode: Text.fit
-                font.pixelSize: Math.min(width, height) * 0.2
-
-
-                text: "Generate"
-            }
+            fontSize: Math.min(width, height) * 0.8
         }
 
         Grid {
@@ -64,40 +54,21 @@ Item {
             Button {
                 id: saveButton
 
-                width: generateButton.width * 0.6
-                height: generateButton.height * 0.6
+                width: ideaCard.width * 0.35
+                height: ideaCard.height * 0.15
 
+                label: "Сохранить"
 
-                Text {
-                    width: parent.width
-                    height: parent.height
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-
-                    font.pixelSize: Math.min(width, height) * 0.2
-
-                    text: "Сохранить"
-                }
             }
 
 
             Button {
                 id: favouritesButton
 
-                width: generateButton.width * 0.6
-                height: generateButton.height * 0.6
+                width: ideaCard.width * 0.35
+                height: ideaCard.height * 0.15
 
-                Text {
-                    id: favButtonLabel
-                    width: parent.width
-                    height: parent.height
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-
-                    font.pixelSize: Math.min(width, height) * 0.2
-
-                    text: "Избранное"
-                }
+                label: "Избранное"
             }
 
         }
