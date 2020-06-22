@@ -8,6 +8,8 @@ Window {
     height: 480
     title: qsTr("Artblock remover")
 
+    color: "Maroon"
+
     MainMenu {
         id: menu
     }

@@ -12,7 +12,8 @@ import QtQuick 2.0
         MouseArea {
             id: marea
             anchors.fill: parent
-            onEntered: buttonbg.opacity = 0.35;
-            onExited: buttonbg.opacity = 0.1;
+
+            onClicked: buttonbg.opacity = 0.35;
+            onReleased: buttonbg.opacity = 0.1;
         }
     }

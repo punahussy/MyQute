@@ -2,24 +2,70 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 
 Item {
+    id: menu
     width: parent.width
     height: parent.height
-    Button {
+    Grid {
+        rows: 3
+        spacing: 5
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 15
+        horizontalItemAlignment: Grid.AlignHCenter
 
-        width: 200
-        height: 100
+        Rectangle {
+            id: ideaCard
 
-        Text {
+            width: menu.width * 0.6
+            height: menu.height * 0.6
+            color: "Light Yellow"
 
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
+            Text {
+                id: idea
 
-            font.pixelSize: Math.min(parent.width, parent.height) * 0.8
-            anchors.fill: parent
-            text: "Hello"
+                anchors.fill: parent.fit
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                font.underline: true
+                font.pixelSize: idea.text.length
+
+                text: "Idea idea idea ikea"
+            }
+
         }
+
+        Button {
+            id: generateButton
+
+            width: ideaCard.width * 0.5
+            height: ideaCard.width * 0.25
+
+            Text {
+                width: parent.width
+                height: parent.height
+
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+
+                fontSizeMode: Text.fit
+                font.pixelSize: Math.min(width, height) * 0.5
+
+
+                text: "Generate"
+            }
+        }
+
+        Button {
+            id: saveButton
+
+            width: generateButton.width * 0.8
+            height: generateButton.height * 0.5
+
+            Text {
+                text: "to fav"
+            }
+        }
+
     }
 }
