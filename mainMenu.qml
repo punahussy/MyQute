@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import QtQuick.Controls 2.15
 
 Item {
     id: menu
@@ -42,9 +43,14 @@ Item {
             width: ideaCard.width * 0.6
             height: ideaCard.height * 0.2
 
-            label: "Generate"
+            background: Rectangle {
+                color: "#FA6800"
+            }
 
-            fontSize: Math.min(width, height) * 0.8
+            text: "Сгенерировать!"
+            font.pointSize: Math.min(generateButton.width, generateButton.height) * 0.25 + 1
+
+
         }
 
         Grid {
@@ -57,7 +63,12 @@ Item {
                 width: ideaCard.width * 0.35
                 height: ideaCard.height * 0.15
 
-                label: "Сохранить"
+                background: Rectangle {
+                    color: "#FA6800"
+                }
+
+                text: "Сохранить"
+                font.pointSize: Math.min(saveButton.width, saveButton.height) * 0.25 + 1
 
             }
 
@@ -68,7 +79,12 @@ Item {
                 width: ideaCard.width * 0.35
                 height: ideaCard.height * 0.15
 
-                label: "Избранное"
+                background: Rectangle {
+                    color: "#FA6800"
+                }
+
+                text: "Избранное"
+                font.pointSize: Math.min(favouritesButton.width, favouritesButton.height) * 0.25 + 1
             }
 
         }

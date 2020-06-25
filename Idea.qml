@@ -1,36 +1,14 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.15
-import QtQuick.Window 2.12
+import QtQuick 2.15
 
 Item {
-    id: elem
 
-    property string ideaText: "Hello"
+    width: parent.width
+    height: parent.height
 
     Rectangle {
-        width: elem.width
-        height: elem.height
-        color: "#FA6800"
-        opacity: 0.8
+        width: parent.width * 0.6; height: 35
 
-        Grid {
-            columns: 2
-            spacing: 5
-
-            Text {
-                width: parent.width
-                height: parent.height
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-
-                text: elem.ideaText
-            }
-
-            CheckBox {
-                id: check
-
-            }
-        }
-    }
+        color: "Black"
+      }
 
 }

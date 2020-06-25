@@ -3,7 +3,6 @@ import QtQuick 2.0
 Item {
     id: button
     property string label: "Rename me"
-    property int fontSize: 12
 
     Rectangle {
         id: buttonbg
@@ -28,9 +27,6 @@ Item {
 
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-
-                fontSizeMode: Text.fit
-                font.pixelSize: button.fontSize
 
                 text: button.label
             }
