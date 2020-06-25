@@ -7,12 +7,10 @@ IdeaListModel::IdeaListModel(QObject *parent)
 
 int IdeaListModel::rowCount(const QModelIndex &parent) const
 {
-    // For list models only the root node (an invalid parent) should return the list's size. For all
-    // other (valid) parents, rowCount() should return 0 so that it does not become a tree model.
     if (parent.isValid())
         return 0;
 
-    // FIXME: Implement me!
+    return 100;
 }
 
 QVariant IdeaListModel::data(const QModelIndex &index, int role) const
@@ -20,6 +18,37 @@ QVariant IdeaListModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    // FIXME: Implement me!
+    switch (role) {
+        case ideaTextRole:
+            return QVariant(QString("Shark with a gun"));
+        case isDrawnRole:
+            return QVariant(false);
+    }
+
     return QVariant();
+}
+
+bool IdeaListModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (data(index, role) != value) {
+        // FIXME: Implement me!
+        emit dataChanged(index, index, QVector<int>() << role);
+        return true;
+    }
+    return false;
+}
+
+Qt::ItemFlags IdeaListModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return Qt::NoItemFlags;
+
+    return Qt::ItemIsEditable; // FIXME: Implement me!
+}
+
+QHash<int, QByteArray> IdeaListModel::roleNames() const {
+    QHash<int, QByteArray> names;
+    names[ideaTextRole] = "ideaText";
+    names[isDrawnRole] = "isDrawn";
+    return names;
 }

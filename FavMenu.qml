@@ -3,47 +3,40 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
+import IdeaListModel 1.0
+
 Item {
     width: parent.width; height: parent.height
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
 
+    IdeaListModel {
+        id: idealistmodel
+    }
 
     ListView {
         id: list
-        implicitWidth: 250
-        implicitHeight: 250
-
-        model: ListModel {
-            ListElement {
-                drawn: true
-                ideaText: "Punching sharks"
-            }
+        anchors.horizontalCenter: parent.horizontalCenter
+        Rectangle {
+            width: parent.width * 1.2
+            height: parent.height
+            color: "Cyan"
         }
 
-        delegate: RowLayout {
-            anchors.horizontalCenter: parent.horizontalCenter
-            Rectangle {
-                width: parent.width * 1.2
-                height: parent.height
-                color: "Cyan"
-            }
-
-            CheckBox {
-                checked: model.drawn
-                onClicked: model.drawn = true
-            }
-            Text {
-                text: model.ideaText
-                Layout.fillWidth: true
-            }
+        CheckBox {
+             checked: idealistmodel.isDrawn
+             onClicked: idealistmodel.isDrawn = true
+        }
+        Text {
+             text: idealistmodel.ideaText
+             Layout.fillWidth: true
         }
     }
 
     Button {
         id: backButton
 
-        width: list.width * 0.5
+        width: parent.width * 0.2
         height: width * 0.6
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 15
@@ -60,7 +53,6 @@ Item {
         onClicked: {
             root.currentWindow = "menu"
         }
-
 
     }
 
