@@ -12,15 +12,19 @@ Window {
     minimumWidth: 400
     title: qsTr("Artblock remover")
 
+    property string currentWindow: "menu"
+
     color: "Light Yellow"
 
     MainMenu {
         id: menu
-        visible: false
+        visible: root.currentWindow === "menu"
     }  
 
     FavMenu {
         id: idea
+
+        visible: root.currentWindow === "favs"
     }
 
 }

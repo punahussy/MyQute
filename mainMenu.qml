@@ -79,12 +79,13 @@ Item {
                 width: ideaCard.width * 0.35
                 height: ideaCard.height * 0.15
 
-                background: Rectangle {
-                    color: "#FA6800"
-                }
 
                 text: "Избранное"
                 font.pointSize: Math.min(favouritesButton.width, favouritesButton.height) * 0.25 + 1
+
+                onClicked: {
+                    root.currentWindow = "favs";
+                }
             }
 
         }
