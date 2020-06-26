@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 
 #include "idealistmodel.h"
+#include "ideagenerator.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<IdeaListModel>("IdeaListModel", 1, 0, "IdeaListModel");
+    qmlRegisterType<IdeaGenerator>("IdeaGenerator", 1, 0, "IdeaGenerator");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

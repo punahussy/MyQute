@@ -32,8 +32,9 @@ public:
 private:
     struct Item {
         QString ideaText;
-        bool isDrawn;
+        QVariant isDrawn;
     };
+    QList<Item> ideas;
 };
 
 #endif // IDEALISTMODEL_H

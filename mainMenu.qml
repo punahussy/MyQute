@@ -2,10 +2,17 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
 
+import IdeaGenerator 1.0
+
 Item {
     id: menu
     width: parent.width
     height: parent.height
+
+    IdeaGenerator {
+        id: generator
+    }
+
     Grid {
         rows: 3
         spacing: 5
@@ -49,6 +56,8 @@ Item {
 
             text: "Сгенерировать!"
             font.pointSize: Math.min(generateButton.width, generateButton.height) * 0.25 + 1
+
+            onClicked: {idea.text = generator.generate();}
 
 
         }

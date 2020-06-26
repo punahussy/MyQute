@@ -6,9 +6,9 @@ import QtQuick.Layouts 1.3
 import IdeaListModel 1.0
 
 Item {
-    width: parent.width; height: parent.height
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.top: parent.top
+    id: favMenu
+    width: root.width; height: root.height
+    anchors.fill: parent
 
     IdeaListModel {
         id: idealistmodel
@@ -17,21 +17,34 @@ Item {
     ListView {
         id: list
         anchors.horizontalCenter: parent.horizontalCenter
-        Rectangle {
-            width: parent.width * 1.2
-            height: parent.height
-            color: "Cyan"
-        }
+        anchors.bottom: root.bottom
+        model: idealistmodel
+        orientation: Qt.Vertical
+        layoutDirection: Qt.LeftToRight
+        delegate:
+            Rectangle {
+                width: favMenu.width * 0.6
+                height: width * 0.2
+                color: "Cyan"
 
-        CheckBox {
-             checked: idealistmodel.isDrawn
-             onClicked: idealistmodel.isDrawn = true
+                Grid {
+                    rows: 1
+                    spacing: 20
+                    horizontalItemAlignment: Grid.AlignHCenter
+
+                    CheckBox {
+                         checked: model.isDrawn
+                         onClicked: model.isDrawn = true
+                    }
+
+                    Text {
+                         text: model.ideaText
+                         Layout.fillWidth: true
+                    }
+                }
+            }
+
         }
-        Text {
-             text: idealistmodel.ideaText
-             Layout.fillWidth: true
-        }
-    }
 
     Button {
         id: backButton

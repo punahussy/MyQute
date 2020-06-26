@@ -21,7 +21,7 @@ Window {
         visible: root.currentWindow === "menu"
     }  
 
-    FavMenu {
+    Favorites {
         id: idea
 
         visible: root.currentWindow === "favs"

@@ -7,10 +7,7 @@ IdeaListModel::IdeaListModel(QObject *parent)
 
 int IdeaListModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
-        return 0;
-
-    return 100;
+    return ideas.size();
 }
 
 QVariant IdeaListModel::data(const QModelIndex &index, int role) const
