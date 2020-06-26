@@ -82,7 +82,7 @@ Item {
                 font.pointSize: Math.min(saveButton.width, saveButton.height) * 0.25 + 1
 
                 onClicked: {
-                    generator.saveIdea(idea.text);
+                    generator.saveIdea();
                 }
 
             }

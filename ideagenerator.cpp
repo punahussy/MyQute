@@ -31,21 +31,21 @@ QString IdeaGenerator::generate()
     if (!adjFile.open(QIODevice::ReadOnly | QIODevice::Text))
         return "Adjective database not found \n";
 
-    QList<QString> adjectivesList;
+    QList<QString> adjs;
     while (!adjFile.atEnd()) {
         QString line = adjFile.readLine();
-        adjectivesList.append(line);
+        adjs.append(line);
     }
     adjFile.close();
-    QString adjective = adjectivesList.at(0);
+    QString adjective = adjs.at(randomBetween(0, adjs.length() - 1));
 
-    currentIdea = adjective.append(noun);
+    currentIdea = adjective.append(noun).toUpper();
 
     return currentIdea;
 
 }
 
-void IdeaGenerator::saveIdea(QString idea)
+void IdeaGenerator::saveIdea()
 {
     const QString filename = "ideas.txt";
     QFile file(filename);
@@ -53,7 +53,10 @@ void IdeaGenerator::saveIdea(QString idea)
     if(file.open(QIODevice::Append | QIODevice::Text))
     {
         QTextStream writeStream(&file);
-        writeStream << idea ;
+        if (!currentIdea.isEmpty())
+            writeStream << currentIdea.replace('\n', ' ') << '\n';
+        else
+            writeStream << "A toad with a flamethrower \n";
         file.close();
     }
 

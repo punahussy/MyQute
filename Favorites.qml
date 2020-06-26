@@ -38,11 +38,12 @@ Item {
             }
 
             Text {
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.top: parent.top
+                anchors.topMargin: parent.height * 0.25
                 anchors.left: isDrawn.right
                 anchors.leftMargin: 15
                 text: model.ideaText
-                font.pixelSize: Math.min(parent.width, parent.height) * 0.35
+                font.pixelSize: Math.min(parent.width, parent.height) * 0.45
             }
         }
 

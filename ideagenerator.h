@@ -14,7 +14,7 @@ public:
     QString currentIdea;
 
     Q_INVOKABLE QString generate();
-    Q_INVOKABLE void saveIdea(QString idea);
+    Q_INVOKABLE void saveIdea();
 
     int randomBetween(int min, int max);
     QRandomGenerator rand;

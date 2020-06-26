@@ -58,8 +58,7 @@ void IdeaListModel::prepareList()
 
     while (!file.atEnd()) {
         QByteArray line = file.readLine();
-        QList<QByteArray> lines = line.split(' ');
-        ideas.append({lines.at(1), lines.at(0) == "Finished" ? true : false});
+        ideas.append({line, false});
     }
     file.close();
 }
