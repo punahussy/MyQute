@@ -23,17 +23,18 @@ QString IdeaGenerator::generate()
 
     QList<QString> nouns;
     while (!nounsFile.atEnd()) {
-        QByteArray line = nounsFile.readLine();
+        QString line = nounsFile.readLine();
         nouns.append(line);
     }
     QList<QString> adjs;
     while (!nounsFile.atEnd()) {
-        QByteArray line = nounsFile.readLine();
+        QString line = nounsFile.readLine();
         adjs.append(line);
     }
 
-
-    currentIdea = nouns.at(randomBetween(0, nouns.length()-1));
+    QString adjective = adjs.at(0);
+    QString noun = nouns.at(randomBetween(0, nouns.length()-1));
+    currentIdea = adjective.append(noun);
 
     nounsFile.close();
     adjFile.close();
