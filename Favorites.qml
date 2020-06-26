@@ -70,7 +70,26 @@ Item {
         }
     }
 
+    Button {
+        id: refreshButton
 
+        width: backToMenuButton.width
+        height: backToMenuButton.height
+        anchors.left: root.left
+        anchors.bottom: backToMenuButton.top
+        anchors.bottomMargin: 5
+
+        background: Rectangle {
+            color: "Yellow"
+        }
+
+        text: "Refresh"
+
+        onClicked: {
+            idealistmodel.prepareList();
+            ideasList.forceLayout();
+        }
+    }
 
 
 }

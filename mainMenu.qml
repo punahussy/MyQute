@@ -40,7 +40,7 @@ Item {
                 font.underline: true
                 font.pixelSize: Math.sqrt(Math.min(width, height))
 
-                text: "Shark with a gun"
+                text: "Shark with a gun \n"
             }
 
         }

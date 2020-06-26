@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QRandomGenerator>
 
 class IdeaGenerator : public QObject
 {
@@ -14,6 +15,9 @@ public:
 
     Q_INVOKABLE QString generate();
     Q_INVOKABLE void saveIdea(QString idea);
+
+    int randomBetween(int min, int max);
+    QRandomGenerator rand;
 
 
 signals:

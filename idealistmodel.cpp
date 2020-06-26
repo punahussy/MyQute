@@ -56,12 +56,14 @@ QHash<int, QByteArray> IdeaListModel::roleNames() const {
 
 void IdeaListModel::prepareList()
 {
+    ideas.clear();
     QFile file("ideas.txt");
-       if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-           return;
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    return;
 
-       while (!file.atEnd()) {
-           QByteArray line = file.readLine();
-           ideas.append({line, false});
-       }
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        ideas.append({line, false});
+    }
+    file.close();
 }

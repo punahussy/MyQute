@@ -28,7 +28,7 @@ public:
 
     virtual QHash<int, QByteArray> roleNames() const override;
 
-    void prepareList();
+    Q_INVOKABLE void prepareList();
 
 private:
     struct Item {
