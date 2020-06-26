@@ -33,7 +33,7 @@ QString IdeaGenerator::generate()
     }
 
 
-    currentIdea = adjs.at(randomBetween(0, adjs.length()-1)) + nouns.at(randomBetween(0, nouns.length()-1));
+    currentIdea = nouns.at(randomBetween(0, nouns.length()-1));
 
     nounsFile.close();
     adjFile.close();
