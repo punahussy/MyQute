@@ -13,31 +13,33 @@ IdeaGenerator::IdeaGenerator(QObject *parent) : QObject(parent)
 
 QString IdeaGenerator::generate()
 {
+
     QFile nounsFile("nouns.txt");
     if (!nounsFile.open(QIODevice::ReadOnly | QIODevice::Text))
         return "Noun database not found \n";
-    QFile adjFile("adjectives.txt");
-    if (!adjFile.open(QIODevice::ReadOnly | QIODevice::Text))
-        return "Adjective database not found \n";
-
 
     QList<QString> nouns;
     while (!nounsFile.atEnd()) {
         QString line = nounsFile.readLine();
         nouns.append(line);
     }
-    QList<QString> adjs;
-    while (!nounsFile.atEnd()) {
-        QString line = nounsFile.readLine();
-        adjs.append(line);
-    }
-
-    QString adjective = adjs.at(0);
-    QString noun = nouns.at(randomBetween(0, nouns.length()-1));
-    currentIdea = adjective.append(noun);
-
     nounsFile.close();
+    QString noun = nouns.at(randomBetween(0, nouns.length()-1));
+
+
+    QFile adjFile("adjectives.txt");
+    if (!adjFile.open(QIODevice::ReadOnly | QIODevice::Text))
+        return "Adjective database not found \n";
+
+    QList<QString> adjectivesList;
+    while (!adjFile.atEnd()) {
+        QString line = adjFile.readLine();
+        adjectivesList.append(line);
+    }
     adjFile.close();
+    QString adjective = adjectivesList.at(0);
+
+    currentIdea = adjective.append(noun);
 
     return currentIdea;
 

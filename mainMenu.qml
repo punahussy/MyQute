@@ -38,7 +38,8 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 font.underline: true
-                font.pixelSize: Math.sqrt(Math.min(width, height))
+                font.pixelSize: Math.sqrt(Math.min(width, height)) * 1.5
+                lineHeight: 1.5
 
                 text: "Shark with a gun \n"
             }

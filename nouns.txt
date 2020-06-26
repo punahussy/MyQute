@@ -1,4 +1,4 @@
-ATM
+﻿ATM
 CD
 SUV
 TV
@@ -3248,7 +3248,7 @@ jade
 jaguar
 jail
 jailhouse
-jalapeño
+jalapeГ±o
 jam
 jar
 jasmine
