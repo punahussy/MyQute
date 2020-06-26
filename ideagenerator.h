@@ -10,7 +10,10 @@ class IdeaGenerator : public QObject
 public:
     explicit IdeaGenerator(QObject *parent = nullptr);
 
+    QString currentIdea;
+
     Q_INVOKABLE QString generate();
+    Q_INVOKABLE void saveIdea(QString idea);
 
 
 signals:

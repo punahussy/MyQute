@@ -1,15 +1,12 @@
 #include "idealistmodel.h"
 
-#include <QFile>
-
 IdeaListModel::IdeaListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    prepareList();
 }
 
 int IdeaListModel::rowCount(const QModelIndex &parent) const
-{    
+{
     return ideas.size();
 }
 
@@ -52,16 +49,4 @@ QHash<int, QByteArray> IdeaListModel::roleNames() const {
     names[ideaTextRole] = "ideaText";
     names[isDrawnRole] = "isDrawn";
     return names;
-}
-
-void IdeaListModel::prepareList()
-{
-    QFile file("ideas.txt");
-       if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-           return;
-
-       while (!file.atEnd()) {
-           QByteArray line = file.readLine();
-           ideas.append({line, false});
-       }
 }

@@ -14,7 +14,7 @@ QString IdeaGenerator::generate()
 {
     QFile file("in.txt");
        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-           return "Word database not found";
+           return "не найдены файлы базы слов";
 
        while (!file.atEnd()) {
            QByteArray line = file.readLine();
@@ -34,7 +34,7 @@ void IdeaGenerator::saveIdea(QString idea)
     if(file.open(QIODevice::Append | QIODevice::Text))
     {
         QTextStream writeStream(&file);
-        writeStream << idea << "\n";
+        writeStream << idea;
         file.close();
     }
 

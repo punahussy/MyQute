@@ -62,15 +62,15 @@ Item {
             color: "#FA6800"
         }
 
-        text: "Назад"
+        text: "Back"
         font.pixelSize: Math.min(width, height) * 0.25
 
         onClicked: {
             root.currentWindow = "menu"
         }
-
-
     }
+
+
 
 
 }

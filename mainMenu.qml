@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
 
 import IdeaGenerator 1.0
+import IdeaListModel 1.0
 
 Item {
     id: menu
@@ -39,7 +40,7 @@ Item {
                 font.underline: true
                 font.pixelSize: Math.sqrt(Math.min(width, height))
 
-                text: "Idea idea idea ikea ikea ikea ikea"
+                text: "Shark with a gun"
             }
 
         }
@@ -54,7 +55,7 @@ Item {
                 color: "#FA6800"
             }
 
-            text: "Сгенерировать!"
+            text: "Generate!"
             font.pointSize: Math.min(generateButton.width, generateButton.height) * 0.25 + 1
 
             onClicked: {idea.text = generator.generate();}
@@ -76,8 +77,12 @@ Item {
                     color: "#FA6800"
                 }
 
-                text: "Сохранить"
+                text: "Save"
                 font.pointSize: Math.min(saveButton.width, saveButton.height) * 0.25 + 1
+
+                onClicked: {
+                    generator.saveIdea(idea.text);
+                }
 
             }
 
@@ -89,11 +94,11 @@ Item {
                 height: ideaCard.height * 0.15
 
 
-                text: "Избранное"
+                text: "Favourites"
                 font.pointSize: Math.min(favouritesButton.width, favouritesButton.height) * 0.25 + 1
 
                 onClicked: {
-                    root.currentWindow = "favs";
+                    root.currentWindow = "favs";                    
                 }
             }
 

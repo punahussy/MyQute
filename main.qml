@@ -22,7 +22,7 @@ Window {
     }  
 
     Favorites {
-        id: idea
+        id: ideas
 
         visible: root.currentWindow === "favs"
     }

@@ -14,12 +14,12 @@ QString IdeaGenerator::generate()
 {
     QFile file("in.txt");
        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-           return "Word database not found";
+           return "не найдены файлы базы слов";
 
        while (!file.atEnd()) {
            QByteArray line = file.readLine();
+           process_line(line);
        }
-
     currentIdea = "Hello world";
 
     return currentIdea;
@@ -28,13 +28,13 @@ QString IdeaGenerator::generate()
 
 void IdeaGenerator::saveIdea(QString idea)
 {
-    const QString filename = "ideas.txt";
+    const QString filename = "/ideas.txt";
     QFile file(filename);
 
     if(file.open(QIODevice::Append | QIODevice::Text))
     {
         QTextStream writeStream(&file);
-        writeStream << idea << "\n";
+        writeStream << "Text, text, text.";
         file.close();
     }
 

@@ -5,7 +5,6 @@
 IdeaListModel::IdeaListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    prepareList();
 }
 
 int IdeaListModel::rowCount(const QModelIndex &parent) const

@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainMenu.qml</file>
-        <file>FavMenu.qml</file>
         <file>Favorites.qml</file>
     </qresource>
 </RCC>
