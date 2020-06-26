@@ -9,7 +9,7 @@ IdeaListModel::IdeaListModel(QObject *parent)
 }
 
 int IdeaListModel::rowCount(const QModelIndex &parent) const
-{    
+{
     return ideas.size();
 }
 
@@ -31,11 +31,6 @@ QVariant IdeaListModel::data(const QModelIndex &index, int role) const
 
 bool IdeaListModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (data(index, role) != value) {
-        // FIXME: Implement me!
-        emit dataChanged(index, index, QVector<int>() << role);
-        return true;
-    }
     return false;
 }
 
@@ -63,7 +58,8 @@ void IdeaListModel::prepareList()
 
     while (!file.atEnd()) {
         QByteArray line = file.readLine();
-        ideas.append({line, false});
+        QList<QByteArray> lines = line.split(' ');
+        ideas.append({lines.at(1), lines.at(0) == "Finished" ? true : false});
     }
     file.close();
 }

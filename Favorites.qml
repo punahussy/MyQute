@@ -89,6 +89,8 @@ Item {
             idealistmodel.prepareList();
             ideasList.forceLayout();
         }
+
+        visible: false
     }
 
 
